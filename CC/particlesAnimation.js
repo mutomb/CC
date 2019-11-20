@@ -13,6 +13,7 @@ for (let i = 0; i < numBalls; i++) {
   ball.style.transform = `scale(${Math.random()})`;
   ball.style.width = `${Math.random()}em`;
   ball.style.height = ball.style.width;
+  ball.style.position="fixed";
   
   balls.push(ball);
   document.body.append(ball);
