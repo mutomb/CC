@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap 4 Website Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--CDN-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <!--local-->
+  <link rel="stylesheet" href="../../bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  <script src="../../../../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../../../../../node_modules/popper.js/dist/popper.min.js"></script>
+  <script src="../../bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+  <style>
+    * {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .ball {
+      position:absolute;
+      border-radius: 100%;
+      z-index: -1;
+    } 
+    body{
+      background-color:rgb(233, 128, 30);
+    }
+    .container {
+      font-weight: 500;
+      box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      border-radius: 0.5em;
+      background-color: whitesmoke; 
+      font-size: 10px;
+      width: 100%;
+      
+    }
+    .row{
+      margin:10px;
+    }
+    .size-1 {
+      font-size: 2.81em;
+    }
+
+    .size-3 {
+      font-size: 1.87em;
+    }
+
+    .size-5 {
+      font-size: 1.56em;
+    }
+
+    .size-6 {
+      font-size: 1.25em;
+    }
+
+    .size-7 {
+      font-size: 0.93em;
+    }
+
+    .bold-1 {
+      font-weight: 900;
+    }
+
+    .bold-3 {
+      font-weight: 700;
+    }
+
+    .bold-4 {
+      font-weight: 600;
+    }
+
+    .fade-5 {
+      opacity: 0.5;
+    }
+
+    .fade-1 {
+      opacity: 0.9;
+    }
+
+    .caps {
+      text-transform: uppercase;
+    }
+
+    .brownish {
+      color: brown;
+    }
+
+    .camelCase {
+      text-transform: capitalize;
+    }
+
+    .shape {
+      text-align: center;
+    }
+
+    .shape.circle-3 {
+      padding: 0.7em;
+      display: inline-block;
+      font-size: 1.20em;
+      width: 30%;
+      background-color: white;
+      color: black;
+      border-radius: 3.125em;
+      margin-bottom: 0.625em;
+    }
+
+    button.button1 {
+      width: 3em;
+      height: 3em;
+      border-radius: 50%;
+      border: 5px solid whitesmoke;
+      box-shadow: 0 0 0.625em darkred;
+
+    }
+
+    button.button1:hover {
+      box-shadow: 0 0 1.25em darkred;
+      transition: all 0.3s ease 0s;
+    }
+
+    button.button2 {
+      color: #ffffff !important;
+      display: inline-block;
+      font-size: 1.25em;
+      background-color: black;
+      width:90%;
+      padding: 1em;
+      border-radius: 3.125em;
+      border: none;
+      font-weight: 100;
+      transition: all 0.2s ease 0s;
+    }
+
+    button.button2:hover {
+      letter-spacing: 1px;
+      box-shadow: 0 0.31em 2.5em -0.625em rgba(0,0,0,0.57);
+      -webkit-box-shadow: 0 0.31em 2.5em -0.625em rgba(0,0,0,0.57);
+      -moz-box-shadow: 0 0.31em 2.5em -0.625em rgba(0,0,0,0.57);
+    }
+
+    .shape.black-border {
+      border: 0.125em solid black;
+      opacity: 0.7;
+    }
+
+    .shape.circle-1 {
+      width: 3em;
+      height: 3em;
+      border-radius: 50%;
+      border: none;
+    }
+
+    .shape.shape.circle-1:hover {
+      box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+      transition: all 0.3s ease 0s;
+    }
+
+    .shape.circle-1.red-border {
+      border: 0.08em solid red;
+      background: none;
+      position: relative;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    hr{
+      background-color: rgb(94, 93, 93);
+      height: 1px;
+      opacity: 0.8;
+    }
+    @media (min-width: 576px) { 
+      .container {
+        font-size: 12px;
+      }
+      .shape.circle-3 {
+        width:5em;
+        margin-bottom: 0;
+  
+      }
+    }
+    @media (min-width: 768px) {
+      .container {
+          font-size: 12px;
+          width: 80%;
+        }
+     }
+    @media (min-width: 992px) { 
+      .container {
+          font-size: 14px;
+          width: 60%;
+        }
+     }
+    @media (min-width: 1200px) {
+      .container {
+          font-size: 16px;
+          width: 50%;
+        }
+     }
+      </style>
+</head>
+
+<body>
+  <script src="./particlesAnimation.js"></script>
+  <div class="container" style="margin-top:30px">
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="size-1 caps bold-1 fade-1">
+          HICKIES
+        </span>
+        <span class="size-1 camelCase bold-1 fade-1">
+          Originals
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <i class="fas fa-star size-5 fade-1"></i>
+        <span class="size-6 bold-1 fade-5 size-7">
+          1,293 reviews
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="brownish size-3 bold-3 fade-5">
+          $14.99
+        </span>
+        <span class="size-7 bold-3 fade-5">
+          $17.99
+        </span>
+        <span class="size-6 bold-3 fade-5">
+          25% OFF
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="size-6 fade-2">
+          ONLINE EXCLUSIVE
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="size-6 fade-1 bold-3">
+          COLOR:
+        </span>
+        <span class="size-6 fade-2">
+          Red
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+          <button class="button1 red">
+          </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="size-8 fade-1 bold-3 camelCase">
+          size guide
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="size-8 fade-1 bold-4 camelCase">
+          Your Custom Fit
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-2">
+        <span class="shape bold-4 circle-3 black-border">
+          10
+        </span>
+      </div>
+      <div class="col-12 col-sm-10">
+        <button class="btn button2">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="size-8 fade-1 bold-4 caps">
+          Details
+        </span>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="fade-2 shape circle-1 red">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="size-8 fade-1 bold-4 camelCase">
+          need help?
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="size-8 fade-1 bold-4 camelCase">
+          shipping & returns
+        </span>
+      </div>
+    </div>
+</body>
+
+</html>
