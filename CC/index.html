@@ -170,7 +170,7 @@
     }
 
     button.button2 {
-      color: #ffffff !important;
+      color: #ffffff;
       display: inline-block;
       font-size: 1.25em;
       background-color: black;
@@ -186,6 +186,9 @@
     button.button2:hover {
       letter-spacing: 1px;
       box-shadow: 0 0 0 0.2em rgb(0, 0, 0); 
+      background: #eda645;
+		  outline: none;
+      color: black;
     }
 
     .shape.black-border {
@@ -457,7 +460,7 @@
 
 
   .modal-confirm {		
-		color: #434e65;
+		color: white;
 		width: 32.8em;
     border-radius: 0.18em;
     box-shadow: 0 0.3125em 2.5em -0.625em rgba(0, 0, 0, 0.57);
@@ -519,9 +522,9 @@
 		margin-top: 80px;
 	}
     .modal-confirm .btn {
-        color: #fff;
+        color: rgb(255, 255, 255);
         border-radius: 4px;
-		background: #eeb711;
+		background: #0e0a00;
 		text-decoration: none;
 		transition: all 0.4s;
         line-height: normal;
@@ -543,6 +546,9 @@
 		font-size: 20px;
 		float: right;
 	}
+  .modal-confirm .btn.btn-link{
+    color:#ffffff;
+  }
 
   </style>
 </head>
@@ -647,47 +653,67 @@
 
               <div class="row">
                   <div class="col-lg-12">
-                    <h1 class="page-title">FAQs</h1>
+                    <h1 class="page-title">Application Guide</h1>
                     <div class="accordion" id="accordionExample">
                       <div class="card">
                         <div class="card-header" id="headingOne">
                           <h2 class="clearfix mb-0">
-                            <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fa fa-chevron-circle-down"></i> What is Bootstrap Framework?</a>									
+                            <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fa fa-chevron-circle-down"></i> What it does?</a>									
                           </h2>
                         </div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                          <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Vestibulum id metus ac nisl bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet sagittis. In tincidunt orci sit amet elementum vestibulum.</div>
+                          <div class="card-body">The app allows you to select color(s), add as many as you wish to a cart and finally check out those color(s)</div>
                         </div>
                       </div>
                       <div class="card">
                         <div class="card-header" id="headingTwo">
                           <h2 class="mb-0">
-                            <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-chevron-circle-down"></i> How to Create Responsive Website with Bootstrap?</a>
+                            <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-chevron-circle-down"></i> How to choose color(s)?</a>
                           </h2>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                          <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</div>
+                          <div class="card-body">
+                            First, press on a circle corresponding to the color that you want.<br>
+                            Second, press on the "Add to Cart".<br> 
+                            Third, Press "-" or "+" to increase or decrease repectively the amount of the chosen color.<br> 
+                            Fourth, Press "Agree" to confirm the choice 
+                            or otherwise "cancel" when you don't want to add the color.
+                            
+                          </div>
                         </div>
                       </div>
                       <div class="card">
                         <div class="card-header" id="headingThree">
                           <h2 class="mb-0">
-                            <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-chevron-circle-down"></i> Does Bootstrap Framework Provide Cross-browser Support?</a>                     
+                            <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-chevron-circle-down"></i> Can You add different colors to cart?</a>                     
                           </h2>
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                          <div class="card-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Vestibulum id metus ac nisl bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet sagittis. In tincidunt orci sit amet elementum vestibulum.</div>
+                          <div class="card-body">Yes. Do not press "Checkout Now". Instead, press on a different color then add it to the same cart.</div>
                         </div>
                       </div>
                       <div class="card">
                         <div class="card-header" id="headingFour">
                           <h2 class="mb-0">
-                            <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="fa fa-chevron-circle-down"></i> Can I Use Bootstrap for Mobile App Development?</a>                               
+                            <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="fa fa-chevron-circle-down"></i> How do you checkout color(s) ?</a>                               
                           </h2>
                         </div>
                         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                          <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</div>
+                          <div class="card-body">After Choosing color(s) and their corresponding quantity, then press "Checkout".</div>
                         </div>
+                      </div>
+                      <div class="card">
+                          <div class="card-header" id="headingFour">
+                            <h2 class="mb-0">
+                              <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="fa fa-chevron-circle-down"></i> How do change color quantity ?</a>                               
+                            </h2>
+                          </div>
+                          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                            <div class="card-body">
+                              Under "details" section you should see the quantity of the selected color.<br>
+                              If you don't like it then, you can select the color whose quantity you want to change, press "Add to cart" and change quantity.
+                            </div>
+                          </div>
                       </div>
                     </div>
                   </div>
