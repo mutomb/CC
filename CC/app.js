@@ -1,6 +1,6 @@
 /* pre-load animation*/
 $(window).load(function() {
-    $(".se-pre-con").fadeOut("slow");;
+    $(".se-pre-con").fadeOut("slow");
   });
 /* colors: {key:value}={color name: color code}*/
 var colorsObjects = new Map();
