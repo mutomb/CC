@@ -1,9 +1,10 @@
-// Some random colors
+/*Some random colors*/
 const colors = ['white'];
 
 const numBalls = 50;
 const balls = [];
 
+/*animation boxing */
 for (let i = 0; i < numBalls; i++) {
   let ball = document.createElement("div");
   ball.classList.add("ball");
@@ -19,7 +20,7 @@ for (let i = 0; i < numBalls; i++) {
   document.body.append(ball);
 }
 
-// Keyframes
+/* animate balls */
 balls.forEach((el, i, ra) => {
   let to = {
     x: Math.random() * (i % 2 === 0 ? -11 : 11),
@@ -32,7 +33,7 @@ balls.forEach((el, i, ra) => {
       { transform: `translate(${to.x}rem, ${to.y}rem)` }
     ],
     {
-      duration: (Math.random() + 1) * 2000, // random duration
+      duration: (Math.random() + 1) * 2000, 
       direction: "alternate",
       fill: "both",
       iterations: Infinity,

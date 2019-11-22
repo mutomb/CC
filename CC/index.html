@@ -2,563 +2,38 @@
 <html lang="en">
 
 <head>
-  <title>Bootstrap 4 Website Example</title>
+  <title>color shopping cart app</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <!--CDN plugings-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js">
-  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   
-  <!--icons and fonts-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Staatliches&display=swap" rel="stylesheet">
-  <!--local
+  <!--local 
   <link rel="stylesheet" href="../../bootstrap-4.3.1-dist/css/bootstrap.min.css">
   <script src="../../../../../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../../../../../node_modules/popper.js/dist/popper.min.js"></script>
   <script src="../../bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     -->
-  <style>
-/*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
-  html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}template,[hidden]{display:none}a{background-color:transparent}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:0.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace, monospace;font-size:1em}figure{margin:1em 40px}hr{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;height:0;overflow:visible}button,input,select,textarea{font:inherit;margin:0}optgroup{font-weight:bold}button,input,select{overflow:visible}button,select{text-transform:none}button,[type="button"],[type="reset"],[type="submit"]{cursor:pointer}[disabled]{cursor:default}button,html [type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}button:-moz-focusring,input:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type="checkbox"],[type="radio"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield}[type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
-  html {
-        min-width: 576px;
-      }
-    * {
-      font-family: 'Staatliches', cursive;
-      font-family: 'Libre Baskerville', serif;
-      color: #333;
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-      font-weight: 500;
-      margin: 0;
-    }
-
-    .ball {
-      position: sticky;
-      border-radius: 50%;
-      z-index: -1;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      padding: 0;
-      margin: 0;
-      background-image: radial-gradient(circle farthest-corner at -8.9% 51.2%, rgb(6, 47, 73) 0%, rgb(21, 47, 63) 15.9%, rgb(6, 47, 73) 15.9%, rgb(21, 47, 63) 24.4%, rgba(19, 30, 37, 1) 24.5%, rgba(19, 30, 37, 1) 66%);;
-      background-repeat: no-repeat; 
-      background-repeat: round;
-      text-align: center;
-    }
-
-    .container {
-      font-weight: 500;
-      box-shadow: 0 0.3125em 2.5em -0.625em rgba(0, 0, 0, 0.57);
-      -webkit-box-shadow: 0 0.3125em 2.5em -0.625em rgba(0, 0, 0, 0.57);
-      -moz-box-shadow: 0 0.3125em 2.5em -0.625em rgba(0, 0, 0, 0.57);
-      border-radius: 0.5em;
-      background-color: whitesmoke;
-      font-size: 16px;
-      width: 100%;
-      text-align: initial;
-    }
-
-    .row {
-      margin: 10px;
-    }
-
-    .size-1 {
-      font-size: 2.81em;
-    }
-
-    .size-3 {
-      font-size: 1.87em;
-    }
-
-    .size-5 {
-      font-size: 1.56em;
-    }
-
-    .size-6 {
-      font-size: 1.25em;
-    }
-
-    .size-7 {
-      font-size: 0.93em;
-    }
-
-    .bold-1 {
-      font-weight: 900;
-    }
-
-    .bold-3 {
-      font-weight: 700;
-    }
-
-    .bold-4 {
-      font-weight: 600;
-    }
-
-    .fade-5 {
-      opacity: 0.5;
-    }
-
-    .fade-1 {
-      opacity: 0.9;
-    }
-
-    .caps {
-      text-transform: uppercase;
-    }
-
-    .brownish {
-      color: brown;
-    }
-
-    .camelCase {
-      text-transform: capitalize;
-    }
-
-    .shape {
-      text-align: center;
-    }
-
-    .shape.circle-3 {
-      padding: 0.7em;
-      display: inline-block;
-      font-size: 1.20em;
-      width: 30%;
-      background-color: white;
-      color: black;
-      border-radius: 3.125em;
-      margin-bottom: 0.625em;
-      text-align: center;
-    }
-
-    .circle-border {
-      width: 3em;
-      height: 3em;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin:0.2em;
-    }
-    .circle-border:hover{
-      
-      transition: all 0.3s ease 0s;
-    }
-    button.button1 {
-      width: 2em;
-      height: 2em;
-      border-radius: 50%;
-      border:none;
-    }
-
-    button.button1:hover {
-      transition: all 0.3s ease 0s;
-    }
-
-    button.button1:focus {
-      outline: none;
-    }
-
-    button.button2 {
-      color: #ffffff;
-      display: inline-block;
-      font-size: 1.25em;
-      background-color: black;
-      width: 90%;
-      padding: 1em;
-      border-radius: 3.125em;
-      border: none;
-      font-weight: 100;
-      transition: all 0.3s ease 0s;
-      margin: 0 1.2em;
-    }
-
-    button.button2:hover {
-      letter-spacing: 1px;
-      box-shadow: 0 0 0 0.2em rgb(0, 0, 0); 
-      background: #eda645;
-		  outline: none;
-      color: black;
-    }
-
-    .shape.black-border {
-      border: 0.125em solid black;
-      opacity: 0.7;
-    }
-
-    .button3 {
-      width: 5em;
-      height: 5em;
-      background-color: black;
-      border: none;
-      padding: 0;
-      border-radius: 50%;
-      transition: all 0.2s ease 0s;
-    }
-
-    .button3:focus {
-      outline-style: none;
-    }
-
-    .button3:hover {
-      box-shadow: 0 0 0 0.2em rgb(0, 0, 0); 
-    }
-
-    .button3 span {
-      color: white;
-      font-size: 3em;
-      font-weight: 999;
-      border: none;
-      margin: 0;
-    }
-
-    .button4 {
-      width: 5em;
-      height: 3em;
-      background-color: rgb(75, 209, 75);
-      border: 0.06em green solid;
-      padding: 0;
-      border-radius: 0.187em;
-      transition: all 0.3s ease 0s;
-    }
-
-    .button4:hover {
-      letter-spacing: 0.125em;
-      box-shadow: 0 0 0 0.2em green;
-    }
-
-    .button5 {
-      width: 5em;
-      height: 3em;
-      background-color: rgb(218, 109, 136);
-      border: 0.06em rgb(128, 0, 38) solid;
-      padding: 0;
-      border-radius: 0.187em;
-      transition: all 0.3s ease 0s;
-    }
-
-    .button5:hover {
-      letter-spacing: 0.125em;
-      box-shadow: 0 0 0 0.3em rgb(128, 0, 38);
-    }
-
-    .shape.circle-1 {
-      width: 3em;
-      height: 3em;
-      border-radius: 50%;
-      border: none;
-    }
-
-    .shape.shape.circle-1:hover {
-      box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-      -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-      -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-      transition: all 0.3s ease 0s;
-    }
-    .modal-content{
-      box-shadow: 0 0.3125em 2.5em -0.625em rgba(0, 0, 0, 0.57);
-    -webkit-box-shadow: 0 0.3125em 2.5em -0.625em rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: 0 0.3125em 2.5em -0.625em rgba(0, 0, 0, 0.57);
-    }
-    .modal-body {
-      padding: 1rem 0;
-    }
-    .modal-header {
-      border-bottom: 0 none;
-    }
-
-    .modal-footer {
-      border-top: 0 none;
-    }  
-    hr {
-      background-color: rgb(94, 93, 93);
-      height: 1px;
-      opacity: 0.8;
-    }
-
-    .no-js #loader { display: none;  }
-    .js #loader { display: block; position: absolute; left: 100px; top: 0; }
-    .se-pre-con {
-      position: fixed;
-      left: 0px;
-      top: 0px;
-      width: 100%;
-      height: 100%;
-      z-index: 9999;
-      background: url(http://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
-    }
-
-    .form-inline {
-        display: inline-block;
-    }
-	.navbar-header.col {
-		padding: 0 !important;
-	}	
-	.navbar {		
-		background: #fff;
-		padding-left: 16px;
-		padding-right: 16px;
-		border-bottom: 1px solid #d6d6d6;
-		box-shadow: 0 0 4px rgba(0,0,0,.1);
-	}
-	.nav-link img {
-		border-radius: 50%;
-		width: 36px;
-		height: 36px;
-		margin: -8px 0;
-		float: left;
-		margin-right: 10px;
-	}
-	.navbar .navbar-brand {
-		color: #555;
-		padding-left: 0;
-		padding-right: 50px;
-		font-family: 'Merienda One', sans-serif;
-	}
-	.navbar .navbar-brand i {
-		font-size: 20px;
-		margin-right: 5px;
-	}
-	.search-box {
-        position: relative;
-    }	
-  .search-box input {
-  box-shadow: none;
-      padding-right: 35px;
-      border-radius: 3px !important;
-  }
-.search-box .input-group-addon {
-      min-width: 35px;
-      border: none;
-      background: transparent;
-      position: absolute;
-      right: 0;
-      z-index: 9;
-      padding: 7px;
-  height: 100%;
-  }
-  .search-box i {
-      color: #a0a5b1;
-  font-size: 19px;
-  }
-	.navbar .nav-item i {
-		font-size: 18px;
-	}
-	.navbar .dropdown-item i {
-		font-size: 16px;
-		min-width: 22px;
-	}
-	.navbar .nav-item.open > a {
-		background: none !important;
-	}
-	.navbar .dropdown-menu {
-		border-radius: 1px;
-		border-color: #e5e5e5;
-		box-shadow: 0 2px 8px rgba(0,0,0,.05);
-	}
-	.navbar .dropdown-menu li a {
-		color: #777;
-		padding: 8px 20px;
-		line-height: normal;
-	}
-	.navbar .dropdown-menu li a:hover, .navbar .dropdown-menu li a:active {
-		color: #333;
-	}	
-	.navbar .dropdown-item .material-icons {
-		font-size: 21px;
-		line-height: 16px;
-		vertical-align: middle;
-		margin-top: -2px;
-	}
-	.navbar .badge {
-		background: #f44336;
-		font-size: 11px;
-		border-radius: 20px;
-		position: absolute;
-		min-width: 10px;
-		padding: 4px 6px 0;
-		min-height: 18px;
-		top: 5px;
-	}
-	.navbar ul.nav li a.notifications, .navbar ul.nav li a.messages {
-		position: relative;
-		margin-right: 10px;
-	}
-	.navbar ul.nav li a.messages {
-		margin-right: 20px;
-	}
-	.navbar a.notifications .badge {
-		margin-left: -8px;
-	}
-	.navbar a.messages .badge {
-		margin-left: -4px;
-	}	
-	.navbar .active a, .navbar .active a:hover, .navbar .active a:focus {
-		background: transparent !important;
-	}
-	@media (min-width: 1200px){
-		.form-inline .input-group {
-			width: 300px;
-			margin-left: 30px;
-		}
-	}
-	@media (max-width: 1199px){
-		.form-inline {
-			display: block;
-			margin-bottom: 10px;
-		}
-		.input-group {
-			width: 100%;
-		}
-	}
-
-
-
-
-    @media (min-width: 576px) {
-      .container {
-        font-size: 12px;
-      }
-
-      .shape.circle-3 {
-        width: 5em;
-        margin-bottom: 0;
-        margin-left: 0;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        font-size: 12px;
-        width: 80%;
-      }
-    }
-
-    @media (min-width: 992px) {
-      .container {
-        font-size: 14px;
-        width: 60%;
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .container {
-        font-size: 16px;
-        width: 50%;
-      }
-    }
-
-
-  .modal-confirm {		
-		color: white;
-		width: 32.8em;
-    border-radius: 0.18em;
-    box-shadow: 0 0.3125em 2.5em -0.625em rgba(0, 0, 0, 0.57);
-    -webkit-box-shadow: 0 0.3125em 2.5em -0.625em rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: 0 0.3125em 2.5em -0.625em rgba(0, 0, 0, 0.57);
-	}
-	.modal-confirm .modal-content {
-		padding: 1.25em;
-		font-size: 1em;
-		border-radius: 0.3em;
-		border: none;
-	}
-	.modal-confirm .modal-header {
-		background: rgb(6, 47, 73);
-    background-image: radial-gradient(circle farthest-corner at -8.9% 51.2%, rgb(6, 47, 73) 0%, rgb(21, 47, 63) 15.9%, rgb(6, 47, 73) 15.9%, rgb(21, 47, 63) 24.4%, rgba(19, 30, 37, 1) 24.5%, rgba(19, 30, 37, 1) 66%);;
-		border-bottom: none;   
-        position: relative;
-		text-align: center;
-		margin: -1.25em -1.25em 0;
-		border-radius: 0.3em 0.3em 0 0;
-		padding: 2em;
-	}
-	.modal-confirm h4 {
-		text-align: center;
-		font-size: 2.25em;
-		margin: 0.625em 0;
-	}
-	.modal-confirm .form-control, .modal-confirm .btn {
-		min-height: 2.5em;
-		border-radius: 0.187em; 
-	}
-	.modal-confirm .close {
-        position: absolute;
-		top: 0.93em;
-		right: 0.93em;
-		color: #fff;
-		text-shadow: none;
-		opacity: 0.5;
-	}
-	.modal-confirm .close:hover {
-		opacity: 0.8;
-	}
-	.modal-confirm .icon-box {
-		color: #fff;		
-		width: 95px;
-		height: 95px;
-		display: inline-block;
-		border-radius: 50%;
-		z-index: 9;
-		border: 5px solid #fff;
-		padding: 15px;
-		text-align: center;
-	}
-	.modal-confirm .icon-box i {
-		font-size: 64px;
-		margin: -4px 0 0 -4px;
-	}
-	.modal-confirm.modal-dialog {
-		margin-top: 80px;
-	}
-    .modal-confirm .btn {
-        color: rgb(255, 255, 255);
-        border-radius: 4px;
-		background: #0e0a00;
-		text-decoration: none;
-		transition: all 0.4s;
-        line-height: normal;
-		border-radius: 30px;
-		margin-top: 10px;
-		padding: 6px 20px;
-        border: none;
-    }
-	.modal-confirm .btn:hover, .modal-confirm .btn:focus {
-		background: #eda645;
-		outline: none;
-	}
-	.modal-confirm .btn span {
-		margin: 1px 3px 0;
-		float: left;
-	}
-	.modal-confirm .btn i {
-		margin-left: 1px;
-		font-size: 20px;
-		float: right;
-	}
-  .modal-confirm .btn.btn-link{
-    color:#ffffff;
-  }
-
-  </style>
+<link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
+  <!-- background animation-->
   <div class="ball">
       <script src="./particlesAnimation.js"></script>
   </div>
+  <!--pre-loading icon-->
   <div class="se-pre-con"></div>
 
+<!--nav bar-->
   <nav class="navbar navbar-default navbar-expand-xl navbar-light">
       <div class="navbar-header d-flex col">
         <a class="navbar-brand" href="#"><i class="fa fa-cube"></i>Color<b>Shopping Cart</b></a>  		
@@ -569,7 +44,6 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-      <!-- Collection of nav links, forms, and other content for toggling -->
       <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
         <ul class="nav navbar-nav">
           <li class="nav-item active"><a href="#" class="nav-link"></a></li>
@@ -609,8 +83,8 @@
       </div>
     </nav>
 
-
   <div class="container" style="margin-top:30px">
+    <!--quantity selection modal-->
     <div class="modal fade left" id="myModal" role="dialog" data-backdrop="" >
       <div class="modal-dialog modal-dialog-centered modal-lg">  
         <div class="modal-content">
@@ -639,7 +113,7 @@
         </div>
       </div>
     </div>
-
+    <!--help modal-->
     <div id="myModal1" class="modal fade">
       <div class="modal-dialog modal-confirm">
         <div class="modal-content">
@@ -726,8 +200,10 @@
           </div>
         </div>
       </div>
-    </div>     
-         
+    </div> 
+
+    <!--main section-->  
+    <!--header-->
     <div class="row">
       <div class="col-sm-12">
         <span class="size-1 caps bold-1 fade-1">
@@ -738,6 +214,7 @@
         </span>
       </div>
     </div>
+    <!--content row1-->
     <div class="row">
       <div class="col-sm-12">
         <i class="fas fa-star size-5 fade-1"></i>
@@ -746,6 +223,7 @@
         </span>
       </div>
     </div>
+    <!--content row2-->
     <div class="row">
       <div class="col-sm-12">
         <span class="brownish size-3 bold-3 fade-5" style="padding-right: 2em">
@@ -759,6 +237,7 @@
         </span>
       </div>
     </div>
+    <!--content row3-->
     <div class="row">
       <div class="col-sm-12">
         <span class="size-6 fade-2">
@@ -766,6 +245,7 @@
         </span>
       </div>
     </div>
+    <!--content row4-->
     <div class="row">
       <div class="col-sm-12">
         <span class="size-6 fade-1 bold-3">
@@ -775,8 +255,10 @@
         </span>
       </div>
     </div>
+    <!--content row5-->
     <div class="row" id="colorButtons">
     </div>
+    <!--content row6-->
     <div class="row">
       <div class="col-sm-12">
         <span class="size-8 fade-1 bold-3 camelCase">
@@ -784,6 +266,7 @@
         </span>
       </div>
     </div>
+    <!--content row7-->
     <div class="row">
       <div class="col-sm-12">
         <span class="size-8 fade-1 bold-4 camelCase">
@@ -791,6 +274,7 @@
         </span>
       </div>
     </div>
+    <!--content row8-->
     <div class="row">
       <div style="text-align: center" id="quantity1" class="col-12 col-sm-2">
       </div>
@@ -800,6 +284,7 @@
       </div>
     </div>
     <hr>
+    <!--content row9-->
     <div class="row " style="margin-top: 2em">
       <div class="col-sm-12">
         <span class="size-8 fade-1 bold-4 caps">
@@ -807,6 +292,7 @@
         </span>
       </div>
     </div>
+    <!--content row10-->
     <div class="row">
       <div class="col-sm-12">
         <div class="row" id="buttonDetails">
@@ -815,11 +301,13 @@
       </div>
     </div>
     <hr>
+    <!--content row11-->
     <div class="row">
       <div class="col-sm-12">
         <a href="#myModal1" class="size-8 fade-1 bold-4 camelCase" data-toggle="modal" style="color:#333" data-backdrop="">need help?</a>
       </div>
     </div>
+    <!--content row12-->
     <div class="row">
       <div class="col-sm-12" style="margin-bottom: 1em">
         <span class="size-8 fade-1 bold-4 camelCase">
@@ -828,6 +316,9 @@
       </div>
     </div>
   </div>
+  <!--content section end-->
+
+  <!-- content controller-->
   <script src="app.js">  </script>
 </body>
 

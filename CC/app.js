@@ -1,6 +1,8 @@
+/* pre-load animation*/
 $(window).load(function() {
     $(".se-pre-con").fadeOut("slow");;
   });
+/* colors: {key:value}={color name: color code}*/
 var colorsObjects = new Map();
 colorsObjects.set("blood", "red");
 colorsObjects.set("grass", "green");
@@ -14,15 +16,24 @@ colorsObjects.set("sky", "lightblue");
 colorsObjects.set("shady of grey", "steelblue");
 colorsObjects.set("chocolate", "brown");
 colorsObjects.set("green milk", "lightgreen");
+
+/* selected color quantity: {key:value}={color name: quantity}*/
 var quantities=new Map();
+
+/** colors will be displayed on 6th row */
 var row6 = document.getElementById("colorButtons");
+
+/** initially user not selected color */
 var selectedColor=null;
-document.getElementById('cartButton').innerHTML="Add to Cart";
+
+/** displays colors to 6th row*/
 colorsObjects.forEach((value, key, map) => {
+    /**create colors and bind listner to them */
     let button = document.createElement("button");
     button.className = `button1`;
     button.style.backgroundColor = `${value}`;
     quantities.set(key,0);
+    /**display circle bother on click */
     button.addEventListener("click",ev => {
         if(selectedColor==null){
             selectedColor=ev.target;
@@ -36,6 +47,7 @@ colorsObjects.forEach((value, key, map) => {
         let selectedColorLabel=document.getElementById('selectedColorLabel');
         selectedColorLabel.innerHTML=`${key}`;
     });
+    /**check modal trigger button to checkout/add to cart */
     button.addEventListener('click',ev=>{
         let quantity=getQuantity(key);
         displayColorsDetails(value, quantity);
@@ -48,7 +60,7 @@ colorsObjects.forEach((value, key, map) => {
         }
 
     })
-
+    /** styling colors */
     button.addEventListener("mouseover",ev=>{
         ev.target.style.boxShadow=`0 0 0 0.5em ${value}`;
     });
@@ -60,7 +72,10 @@ colorsObjects.forEach((value, key, map) => {
     circleBorder.appendChild(button);
     row6.appendChild(circleBorder);
 })
+/** modal trigger label may change dynamically */
+document.getElementById('cartButton').innerHTML="Add to Cart";
 
+/** manipulate modals */
 $(document).ready(function(){
     $("#cartButton").click(function(){
         if(selectedColor!=null && $('#cartButton').text()!=="Checkout Now"){
@@ -80,6 +95,7 @@ $(document).ready(function(){
     })
   });
 
+/** increase/decrease buttons*/
 var minusButton=document.getElementById("minus");
 minusButton.addEventListener("click",ev=>{
     let quantity=document.getElementById('quantity');
@@ -88,13 +104,13 @@ minusButton.addEventListener("click",ev=>{
         quantity.innerHTML=parseInt(quantity.innerHTML)-1;       
     }
 })
-
 var plusButton=document.getElementById("plus");
 plusButton.addEventListener("click",ev=>{
     let quantity=document.getElementById('quantity');
     quantity.innerHTML=parseInt(quantity.innerHTML)+1;
 })
 
+/**agree cancel buttons */
 var agreeButton=document.getElementById('agreeButton');
 agreeButton.addEventListener('click',ev=>{
     let quantity=document.getElementById('quantity');
@@ -114,19 +130,21 @@ agreeButton.addEventListener('click',ev=>{
         }
     }
 })
+
+/**clear content */
 var removeChildren=(parent)=>{
     while(parent.childElementCount>0){
         parent.removeChild(parent.lastElementChild);    
     }   
 }
-
+/** color quantity*/
 var getQuantity=(colorLabel)=>{
     let quantity=quantities.get(colorLabel);
     if(quantity!=undefined)
         return quantity;
     return 0;
 }
-
+/**dipslay rows of colors*/
 var displayColorsDetails=(color,quantity)=>{
     let colorDetails=document.getElementById('buttonDetails');
     removeChildren(colorDetails);
@@ -140,6 +158,8 @@ var displayColorsDetails=(color,quantity)=>{
         }
     }
 }
+
+/**display cquantity */
 var displayQuantity=(quantity)=>{
     let quantityLabel=document.getElementById('quantity1');
     removeChildren(quantityLabel);
@@ -148,10 +168,11 @@ var displayQuantity=(quantity)=>{
     q.innerHTML=quantity;
     quantityLabel.appendChild(q);
 }
-
+/** reset cart on checkout */
 var emptyCart=()=>{
     quantities.forEach((v,k,m)=>{
         m.set(k,0);
     })
 }
+/**initial quantity */
 displayQuantity(0);
