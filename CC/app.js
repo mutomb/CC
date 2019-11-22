@@ -1,6 +1,6 @@
 $(window).load(function() {
     $(".se-pre-con").fadeOut("slow");;
-});
+  });
 var colorsObjects = new Map();
 colorsObjects.set("blood", "red");
 colorsObjects.set("grass", "green");
@@ -49,7 +49,7 @@ colorsObjects.forEach((value, key, map) => {
 
     })
 
-    button.addEventListener("mouseovif(quantities>)er",ev=>{
+    button.addEventListener("mouseover",ev=>{
         ev.target.style.boxShadow=`0 0 0 0.5em ${value}`;
     });
     button.addEventListener("mouseleave",ev=>{
