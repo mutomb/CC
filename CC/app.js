@@ -16,7 +16,6 @@ colorsObjects.set("sky", "lightblue");
 colorsObjects.set("shady of grey", "steelblue");
 colorsObjects.set("chocolate", "brown");
 colorsObjects.set("green milk", "lightgreen");
-
 /* selected color quantity: {key:value}={color name: quantity}*/
 var quantities=new Map();
 
@@ -37,13 +36,14 @@ colorsObjects.forEach((value, key, map) => {
     button.addEventListener("click",ev => {
         if(selectedColor==null){
             selectedColor=ev.target;
-            selectedColor.parentNode.style.border=`0.2em solid ${value}`; 
+            selectedColor.parentNode.style.border=`0.2em solid ${value}`;
         }
         else{
             selectedColor.parentNode.style.border="none";
             selectedColor=ev.target;
-            selectedColor.parentNode.style.border=`0.2em solid ${value}`; 
+            selectedColor.parentNode.style.border=`0.2em solid ${value}`;
         }
+        document.body.style.backgroundImage=`radial-gradient(circle farthest-corner at -8.9% 51.2%, ${value} 0%, ${value} 15.9%, ${value} 15.9%, ${value} 24.4%, rgba(19, 30, 37, 1) 24.5%, rgba(19, 30, 37, 1) 66%)`
         let selectedColorLabel=document.getElementById('selectedColorLabel');
         selectedColorLabel.innerHTML=`${key}`;
     });
@@ -58,7 +58,6 @@ colorsObjects.forEach((value, key, map) => {
         else{
             document.getElementById('cartButton').innerHTML="Add to Cart";
         }
-
     })
     /** styling colors */
     button.addEventListener("mouseover",ev=>{
@@ -88,9 +87,11 @@ $(document).ready(function(){
         else if($('#cartButton').text()=="Checkout Now"){
             $("#myModal").modal('hide');
             emptyCart();
+            addBalls(); /**balls simulations */
             displayColorsDetails('',0);
             displayQuantity(0);
             $('#cartButton').text("Add to Cart");
+            addBallColor('');
         }
     })
   });
@@ -125,6 +126,7 @@ agreeButton.addEventListener('click',ev=>{
                 displayQuantity(savedQuantity);
                 if(savedQuantity>0){
                     document.getElementById('cartButton').innerHTML="Checkout Now";
+                    addBalls();
                 }
             }
         }
@@ -171,8 +173,17 @@ var displayQuantity=(quantity)=>{
 /** reset cart on checkout */
 var emptyCart=()=>{
     quantities.forEach((v,k,m)=>{
-        m.set(k,0);
+        quantities.set(k,0);
     })
 }
 /**initial quantity */
 displayQuantity(0);
+
+/**add balls to animation */
+var addBalls=()=>{
+    colorsObjects.forEach((v,k,m)=>{
+        if(quantities.get(k)>0){
+            addBallColor(v);
+        }
+    })
+}
