@@ -74,7 +74,7 @@ colorsObjects.forEach((value, key, map) => {
 /** modal trigger label may change dynamically */
 document.getElementById('cartButton').innerHTML="Add to Cart";
 
-/** manipulate modals */
+/** add to cart modal manipulation */
 $(document).ready(function(){
     $("#cartButton").click(function(){
         if(selectedColor!=null && $('#cartButton').text()!=="Checkout Now"){
@@ -92,8 +92,28 @@ $(document).ready(function(){
             displayQuantity(0);
             $('#cartButton').text("Add to Cart");
             addBallColor('');
+            updateCartIcon();
+            createAlert('Checkout','','You have checkout all you colors.','info',true,true,'pageMessages');
+        }
+        else{
+            createAlert('Opps!','Pick color','First you must pick color','danger',true,true,'pageMessages');       
         }
     })
+
+    $('#myModal').on('show.bs.modal', function (e) {
+        $('#myModalDialog').attr('class', 'modal-dialog modal-dialog-centered modal-lg zoomIn animated');
+    })
+    $('#myModal').on('hide.bs.modal', function (e) {
+        $('#myModalDialog').attr('class', 'modal-dialog modal-dialog-centered modal-lg zoomOut animated');
+    })
+    $('#myModal1').on('show.bs.modal', function (e) {
+        $('#myModalDialog1').attr('class', 'modal-dialog modal-dialog-centered modal-lg zoomIn animated');
+    })
+    $('#myModal1').on('hide.bs.modal', function (e) {
+        $('#myModalDialog1').attr('class', 'modal-dialog modal-dialog-centered modal-lg zoomOut animated');
+    })
+    
+
   });
 
 /** increase/decrease buttons*/
@@ -127,6 +147,8 @@ agreeButton.addEventListener('click',ev=>{
                 if(savedQuantity>0){
                     document.getElementById('cartButton').innerHTML="Checkout Now";
                     addBalls();
+                    updateCartIcon();
+                    createAlert('','Nice Work!',`You have have just added  ${savedQuantity} ${selectedColorLabel} to your Colorcart.`,'success',true,true,'pageMessages');
                 }
             }
         }
@@ -187,3 +209,97 @@ var addBalls=()=>{
         }
     })
 }
+/**update cart icon */
+var updateCartIcon=()=>{
+    let total=0;
+    colorsObjects.forEach((v,k,m)=>{
+            total+=quantities.get(k);
+    })
+    let cartIcon=document.getElementById('cartIcon');
+    cartIcon.innerHTML=total;
+}
+
+/**create alert */
+var createAlert=(title, summary, details, severity, dismissible, autoDismiss, appendToId)=> {
+    var iconMap = {
+      success: "fa fa-thumbs-up",
+      danger: "fa ffa fa-exclamation-circle"
+    };
+  
+    var iconAdded = false;
+  
+    var alertClasses = ["alert", "animated", "slideInRight"];
+    alertClasses.push("alert-" + severity.toLowerCase());
+  
+    if (dismissible) {
+      alertClasses.push("alert-dismissible");
+    }
+  
+    var msgIcon = $("<i />", {
+      "class": iconMap[severity] 
+    });
+  
+    var msg = $("<div />", {
+      "class": alertClasses.join(" ") 
+    });
+  
+    if (title) {
+      var msgTitle = $("<h4 />", {
+        html: title
+      }).appendTo(msg);
+      
+      if(!iconAdded){
+        msgTitle.prepend(msgIcon);
+        iconAdded = true;
+      }
+    }
+  
+    if (summary) {
+      var msgSummary = $("<strong />", {
+        html: summary
+      }).appendTo(msg);
+      
+      if(!iconAdded){
+        msgSummary.prepend(msgIcon);
+        iconAdded = true;
+      }
+    }
+  
+    if (details) {
+      var msgDetails = $("<p />", {
+        html: details
+      }).appendTo(msg);
+      
+      if(!iconAdded){
+        msgDetails.prepend(msgIcon);
+        iconAdded = true;
+      }
+    }
+
+    if (dismissible) {
+      var msgClose = $("<span />", {
+        "class": "close",
+        "data-dismiss": "alert",
+        html: "<i class='fa fa-times-circle'></i>"
+      }).appendTo(msg);
+    }
+
+    $('#' + appendToId).prepend(msg);
+    $(document).ready(function(){
+        if($(window).width()<578){
+            $("#"+appendToId).css('width','100%');
+        }
+        else{
+            $("#"+appendToId).css('width','40%');
+        }
+      });
+    if(autoDismiss){
+      setTimeout(function(){
+        msg.addClass("slideOutRight");
+        setTimeout(function(){
+          msg.remove();
+        },1000);
+      }, 2000);
+    }
+  }
+  

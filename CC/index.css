@@ -27,7 +27,8 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
      background-image: radial-gradient(circle farthest-corner at -8.9% 51.2%, rgb(6, 47, 73) 0%, rgb(21, 47, 63) 15.9%, rgb(6, 47, 73) 15.9%, rgb(21, 47, 63) 24.4%, rgba(19, 30, 37, 1) 24.5%, rgba(19, 30, 37, 1) 66%);;
      background-repeat: no-repeat; 
      background-repeat: round;
-     text-align: center;
+     text-align: center;  
+
    }
    /*main section*/
    .container {
@@ -536,13 +537,12 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   #myModal1{
     padding-right: 0;
   }
-  .card-body{
-    font-size: 2em;
-  }
   .modal-confirm .btn.btn-link {
     width:100%;
   }
-
+  .card-body{
+    font-size:2em;
+  }
  }
 /*responsive design styling*/
  @media (min-width: 1200px){
@@ -593,3 +593,53 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
      width: 50%;
    }
  }
+/** logo*/
+ .fab.fa-shopware{
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  border-radius: 50%;
+}
+
+/** alerts*/
+
+#pageMessages {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 30%;
+}
+
+.alert {
+  position: relative;
+}
+
+.alert .close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1em;
+}
+
+.alert .fa {
+  margin-right:.3em;
+}
+.card-header:hover{
+  letter-spacing: 1px;
+  box-shadow: 0 0 0 0.2em rgb(0, 0, 0); 
+  background: #eda645;
+  outline: none;
+  color: black;
+  transition: all ease-in 100ms;
+}
+.card-header{
+  background-color: #000;
+
+}
+.card-header h2{
+  color: white;
+}
+.card-header i{
+  color:white;
+}
+#pageMessages{
+  width:100%;
+}
