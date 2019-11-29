@@ -5,19 +5,26 @@
   <title>color shopping cart app</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--CDN plugings-->
+  <!--CDN plugings
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
-
+  -->
+  <!--local-->
+  <link rel="stylesheet" href="../../bootstrap-4.3.1-dist/css/bootstrap.min.css">
+  <script src="../../../../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../../../../node_modules/popper.js/dist/popper.min.js"></script>
+  <script src="../../bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../../../../../node_modules/animate.css/animate.min.css"/>
+  <!--CDN-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Staatliches&display=swap" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="./index.css">
+
 </head>
 <body>
   <!-- background animation-->
@@ -53,7 +60,7 @@
     </nav>
   <div class="container" style="margin-top:30px">
     <!--quantity selection modal-->
-    <div class="modal fade left" id="myModal" role="dialog" data-backdrop="" >
+    <div class="modal fade left animated" id="myModal" role="dialog" data-backdrop="" >
       <div class="modal-dialog modal-dialog-centered modal-lg" id="myModalDialog">  
         <div class="modal-content">
           <div style="border: 0.1em solid #333; margin:0.5em">
@@ -67,7 +74,7 @@
               <button class="button3" id="minus">
                 <span>-</span>
               </button>
-              <span style="color:black; font-size:3em; font-weight: 999; padding:0.31em;" id="quantity">0</span>
+              <span style="color:black; font-size:3em; font-weight: 999; padding:0.31em;" id="quantity"></span>
               <button class="button3" id="plus">
                 <span>+</span>
               </button>
@@ -82,7 +89,7 @@
       </div>
     </div>
     <!--help modal-->
-    <div id="myModal1" class="modal fade">
+    <div id="myModal1" class="modal fade animated">
       <div class="modal-dialog modal-confirm" id="myModalDialog1">
         <div class="modal-content">
           <div class="modal-header">
@@ -95,7 +102,6 @@
 
               <div class="row">
                   <div class="col-lg-12">
-                    <h1 class="page-title">Application Guide</h1>
                     <div class="accordion" id="accordionExample">
                       <div class="card">
                         <div class="card-header" id="headingOne">
@@ -274,8 +280,12 @@
   </div>
   <!--content section end-->
 
-  <!-- content controller-->
-  <script src="app.js">  </script>
+  <!-- content controllers-->
+  <script src="ColoredCircle.js"></script>
+  <script src="DisplayColorsDetails.js"></script>
+  <script src="Modals.js"></script>
+  <script src="Pre-load.js"></script>
+  <script src="Main.js">  </script>
 </body>
 
 </html>
