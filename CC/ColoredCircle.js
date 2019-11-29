@@ -1,9 +1,10 @@
   /**colored circles */
   class ColoredCircle{
-    constructor(colorName, colorCode,price, selectedquantity){
+    constructor(colorName, colorCode, price, discount, selectedquantity){
         this.colorName=colorName;
         this.colorCode=colorCode;
-        this.price=price;
+        this.price=price; /**original price */
+        this.discount=discount; /**discount in percentage */
         this.selectedquantity=selectedquantity;
         this.button;
     }
@@ -35,7 +36,7 @@
         this.button.addEventListener('click',ev=>{ /**change modal trigger button to <checkout>/<add to cart> AND quantity, when user clicks a color*/
             DisplayColorsDetails.displayColorsDetails(this.colorCode, this.selectedquantity);
             DisplayColorsDetails.displayQuantity(this.selectedquantity);
-            DisplayColorsDetails.displayPrice(this.price);
+            DisplayColorsDetails.displayPrice(this.price,this.discount);
             if(this.selectedquantity>0){
                 document.getElementById('cartButton').innerHTML="Checkout Now";
             }

@@ -14,20 +14,20 @@ document.getElementById('cartButton').innerHTML="Add to Cart";
 /**initially user has not selected color */
 var selectedColor=null;
 
-/**initailize circles to be displayed */
+/**initialize circles to be displayed */
 var Colors=[
-    new ColoredCircle('blood','red', 12,0),
-    new ColoredCircle('grass','green', 15, 0),
-    new ColoredCircle('blueink','blue', 10, 0),
-    new ColoredCircle('girlish','pink', 12, 0),
-    new ColoredCircle('wealth','yellow', 55, 0),
-    new ColoredCircle('sad','indigo', 12, 0),
-    new ColoredCircle('transition','purple', 100, 0),
-    new ColoredCircle('batman','black', 12, 0),
-    new ColoredCircle('sky','lightblue', 43, 0),
-    new ColoredCircle('shady of blue','steelblue', 5, 0),
-    new ColoredCircle('chocolate','brown', 34, 0),
-    new ColoredCircle('green milk','lightgreen', 46, 0),
+    new ColoredCircle('blood','red', 12, 25,0),
+    new ColoredCircle('grass','green', 15, 30, 0),
+    new ColoredCircle('blueink','blue', 10, 22, 0),
+    new ColoredCircle('girlish','pink', 12, 5, 0),
+    new ColoredCircle('wealth','yellow', 55, 0, 0),
+    new ColoredCircle('sad','indigo', 12, 25, 0),
+    new ColoredCircle('transition','purple', 100, 11, 0),
+    new ColoredCircle('batman','black', 12, 43, 0),
+    new ColoredCircle('sky','lightblue', 43, 20, 0),
+    new ColoredCircle('shady of blue','steelblue', 5, 17, 0),
+    new ColoredCircle('chocolate','brown', 34, 3, 0),
+    new ColoredCircle('green milk','lightgreen', 46, 10, 0),
 ]
 /** display  colors circle to 6th row*/
 Colors.forEach((coloredCircle)=>{

@@ -299,7 +299,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
  border: none;
 }
 .modal-confirm .modal-header {
- background: rgb(6, 47, 73);
+ background: rgb(73, 6, 28);
  background-image: -webkit-radial-gradient(circle farthest-corner at -8.9% 51.2%, rgb(6, 47, 73) 0%, rgb(21, 47, 63) 15.9%, rgb(6, 47, 73) 15.9%, rgb(21, 47, 63) 24.4%, rgba(19, 30, 37, 1) 24.5%, rgba(19, 30, 37, 1) 66%);
  background-image: radial-gradient(circle farthest-corner at -8.9% 51.2%, rgb(6, 47, 73) 0%, rgb(21, 47, 63) 15.9%, rgb(6, 47, 73) 15.9%, rgb(21, 47, 63) 24.4%, rgba(19, 30, 37, 1) 24.5%, rgba(19, 30, 37, 1) 66%);;
  border-bottom: none;   
@@ -611,7 +611,9 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .alert {
   position: relative;
 }
-
+.alert p,.alert strong, .alert strong i, .alert h4, .alert h4 i {
+  color:white;
+}
 .alert .close {
   position: absolute;
   top: 5px;

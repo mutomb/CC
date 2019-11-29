@@ -26,11 +26,27 @@ class DisplayColorsDetails{
         this.removeChildren(quantityLabel);
         let q=document.createElement('span')
         q.className="shape bold-4 circle-3 black-border";
+        q.id='quantity2';
         q.innerHTML=quantity;
         quantityLabel.appendChild(q);
     }
-    static displayPrice(price){
-        let colorDetails=document.getElementById('price');
-        colorDetails.innerHTML=`$${price}`;
+    static displayPrice(price,discount){
+        let quantity=document.getElementById('quantity2').innerHTML;
+        if(quantity!=undefined && quantity>=2){
+            let price1=document.getElementById('price');
+            price1.innerHTML=`$${(price-(price*discount/100))*parseInt(quantity)}`;
+            let price2=document.getElementById('price2');
+            price2.innerHTML=`$${price*parseInt(quantity)}`;
+            let discount1=document.getElementById('discount');
+            discount1.innerHTML=`${discount}% OFF`;
+        }
+        else if(quantity!=undefined && quantity<2){
+            let price1=document.getElementById('price');
+            price1.innerHTML=`$${price-(price*discount/100)}`;
+            let price2=document.getElementById('price2');
+            price2.innerHTML=`$${price}`;
+            let discount1=document.getElementById('discount');
+            discount1.innerHTML=`${discount}% OFF`;
+        }
     }
 }
