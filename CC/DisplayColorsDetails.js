@@ -29,4 +29,8 @@ class DisplayColorsDetails{
         q.innerHTML=quantity;
         quantityLabel.appendChild(q);
     }
+    static displayPrice(price){
+        let colorDetails=document.getElementById('price');
+        colorDetails.innerHTML=`$${price}`;
+    }
 }

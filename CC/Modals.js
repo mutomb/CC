@@ -199,19 +199,22 @@ $(document).ready(function(){
            }
            if(selectedColorLabel!=undefined){
                let colorCode;
+               let price;
                for(let color of Colors){
                     if(color.colorName==selectedColorLabel){
                         colorCode=color.colorCode;
+                        price=color.price;
                         break;
                     }
                }
-               if(colorCode!=undefined && savedQuantity!=undefined){
+               if(colorCode!=undefined && savedQuantity!=undefined &&price!=undefined){
                    DisplayColorsDetails.displayColorsDetails(colorCode,savedQuantity);
                    DisplayColorsDetails.displayQuantity(savedQuantity);
+                   DisplayColorsDetails.displayPrice(price);
                    if(savedQuantity>0){
                        $('#cartButton').text('Checkout Now');
-                        addBalls(); /** not*/
-                        updateCartIcon();/**not */
+                        addBalls(); 
+                        updateCartIcon();
                         createAlert('','Nice Work!',`You have have just added  ${savedQuantity} ${selectedColorLabel} to your Colorcart.`,'success',true,true,'pageMessages');
                     }
                }

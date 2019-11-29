@@ -16,18 +16,18 @@ var selectedColor=null;
 
 /**initailize circles to be displayed */
 var Colors=[
-    new ColoredCircle('blood','red', 0,0),
-    new ColoredCircle('grass','green', 0, 0),
-    new ColoredCircle('blueink','blue', 0, 0),
-    new ColoredCircle('girlish','pink', 0, 0),
-    new ColoredCircle('wealth','yellow', 0, 0),
-    new ColoredCircle('sad','indigo', 0, 0),
-    new ColoredCircle('transition','purple', 0, 0),
-    new ColoredCircle('batman','black', 0, 0),
-    new ColoredCircle('sky','lightblue', 0, 0),
-    new ColoredCircle('shady of blue','steelblue', 0, 0),
-    new ColoredCircle('chocolate','brown', 0, 0),
-    new ColoredCircle('green milk','lightgreen', 0, 0)
+    new ColoredCircle('blood','red', 12,0),
+    new ColoredCircle('grass','green', 15, 0),
+    new ColoredCircle('blueink','blue', 10, 0),
+    new ColoredCircle('girlish','pink', 12, 0),
+    new ColoredCircle('wealth','yellow', 55, 0),
+    new ColoredCircle('sad','indigo', 12, 0),
+    new ColoredCircle('transition','purple', 100, 0),
+    new ColoredCircle('batman','black', 12, 0),
+    new ColoredCircle('sky','lightblue', 43, 0),
+    new ColoredCircle('shady of blue','steelblue', 5, 0),
+    new ColoredCircle('chocolate','brown', 34, 0),
+    new ColoredCircle('green milk','lightgreen', 46, 0),
 ]
 /** display  colors circle to 6th row*/
 Colors.forEach((coloredCircle)=>{

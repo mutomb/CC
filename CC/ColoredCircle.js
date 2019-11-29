@@ -35,6 +35,7 @@
         this.button.addEventListener('click',ev=>{ /**change modal trigger button to <checkout>/<add to cart> AND quantity, when user clicks a color*/
             DisplayColorsDetails.displayColorsDetails(this.colorCode, this.selectedquantity);
             DisplayColorsDetails.displayQuantity(this.selectedquantity);
+            DisplayColorsDetails.displayPrice(this.price);
             if(this.selectedquantity>0){
                 document.getElementById('cartButton').innerHTML="Checkout Now";
             }
