@@ -1,3 +1,5 @@
+/**handles the display of all modals */
+
 /** add to cart modal manipulation */
 $(document).ready(function(){
     var dismissModal=false;

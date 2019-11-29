@@ -1,3 +1,6 @@
+/**handles the display of balls animation */
+
+
 /*Some random colors*/
 var colors = [];
 

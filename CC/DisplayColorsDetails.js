@@ -1,3 +1,4 @@
+/**handles the display of prices, and quantities associated with color */
 class DisplayColorsDetails{
     constructor(){
         
@@ -34,17 +35,17 @@ class DisplayColorsDetails{
         let quantity=document.getElementById('quantity2').innerHTML;
         if(quantity!=undefined && quantity>=2){
             let price1=document.getElementById('price');
-            price1.innerHTML=`$${(price-(price*discount/100))*parseInt(quantity)}`;
+            price1.innerHTML=`$${(price-(price*discount/100).toFixed(2))*parseInt(quantity)}`;
             let price2=document.getElementById('price2');
-            price2.innerHTML=`$${price*parseInt(quantity)}`;
+            price2.innerHTML=`$${(price.toFixed(2))*parseInt(quantity)}`;
             let discount1=document.getElementById('discount');
             discount1.innerHTML=`${discount}% OFF`;
         }
         else if(quantity!=undefined && quantity<2){
             let price1=document.getElementById('price');
-            price1.innerHTML=`$${price-(price*discount/100)}`;
+            price1.innerHTML=`$${(price-(price*discount/100)).toFixed(2)}`;
             let price2=document.getElementById('price2');
-            price2.innerHTML=`$${price}`;
+            price2.innerHTML=`$${price.toFixed(2)}`;
             let discount1=document.getElementById('discount');
             discount1.innerHTML=`${discount}% OFF`;
         }
