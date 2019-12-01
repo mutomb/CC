@@ -30,8 +30,12 @@ $(document).ready(function(){
     /**create alert */
     var createAlert=(title, summary, details, severity, dismissible, autoDismiss, appendToId)=> {
         let addedItems=document.getElementById("addedItems");
-        if(!(autoDismiss) && addedItems!=undefined){
+        let totalHeader=document.getElementById('totalHeader');
+        console.log(addedItems);
+        if(!(autoDismiss) && addedItems!=undefined && totalHeader!=undefined){
             addedItems.innerHTML+=", "+details;
+            totalHeader.innerHTML=title;
+            
         }
         else{
             var iconMap = {
@@ -44,11 +48,11 @@ $(document).ready(function(){
             alertClasses.push("alert-" + severity.toLowerCase());
         
             if (dismissible) {
-            alertClasses.push("alert-dismissible");
+                alertClasses.push("alert-dismissible");
             }
         
             var msgIcon = $("<i />", {
-            "class": iconMap[severity] 
+                "class": iconMap[severity] 
             });
         
             var msg = $("<div />", {
@@ -62,69 +66,75 @@ $(document).ready(function(){
             })
             }
             if(severity=='info'){
-            msg.css({
-                border:'0.5em solid black',
-                backgroundColor:'rgb(6, 57, 73)',
-                borderRadius:'2em',
-            })
+                msg.css({
+                    border:'0.5em solid black',
+                    backgroundColor:'rgb(6, 57, 73)',
+                    borderRadius:'2em',
+                })
             }
             if(severity=='success'){
-            msg.css({
-                border:'0.5em solid black',
-                backgroundColor:'rgb(12, 73, 6)',
-                borderRadius:'2em',
-            })
+                msg.css({
+                    border:'0.5em solid black',
+                    backgroundColor:'rgb(12, 73, 6)',
+                    borderRadius:'2em',
+                })
             }
         
             if (title) {
-            var msgTitle = $("<h4 />", {
-                html: title
-            }).appendTo(msg);
-            
-            if(!iconAdded){
-                msgTitle.prepend(msgIcon);
-                iconAdded = true;
-            }
+                if(!autoDismiss){
+                    var msgTitle = $("<h4 />", {
+                        html: title,
+                        'id':'totalHeader'
+                    }).appendTo(msg);                    
+                }
+                else{
+                    var msgTitle = $("<h4 />", {
+                        html: title,
+                    }).appendTo(msg);                    
+                }
+                
+                if(!iconAdded){
+                    msgTitle.prepend(msgIcon);
+                    iconAdded = true;
+                }
             }
         
             if (summary) {
-            var msgSummary = $("<strong />", {
-                html: summary
-            }).appendTo(msg);
-            
-            if(!iconAdded){
-                msgSummary.prepend(msgIcon);
-                iconAdded = true;
-            }
-            if(!autoDismiss){
-                if (details) {
-                    var msgDetails = $("<p />", {
-                        html: details,
-                        "id":"addedItems"
-                    }).appendTo(msg);
+                var msgSummary = $("<strong />", {
+                    html: summary,
+                }).appendTo(msg);
+                                
+                if(!iconAdded){
+                    msgSummary.prepend(msgIcon);
+                    iconAdded = true;
                 }
-            }
-            else{
-                if (details) {
-                    var msgDetails = $("<p />", {
-                        html: details
-                    }).appendTo(msg);
+                if(!autoDismiss){
+                    if (details) { /**only cart modal should contain have id=addedItems */
+                        var msgDetails = $("<p />", {
+                            html: details,
+                            "id":"addedItems"
+                        }).appendTo(msg);
+                    }
                 }
-            }
-    
-    
-            if(!iconAdded){
-                msgDetails.prepend(msgIcon);
-                iconAdded = true;
-            }
+                else{
+                    if (details) {
+                        var msgDetails = $("<p />", {
+                            html: details
+                        }).appendTo(msg);
+                    }
+                }
+                if(!iconAdded){
+                    msgDetails.prepend(msgIcon);
+                    iconAdded = true;
+                }
             }
     
             if (dismissible) {
-            var msgClose = $("<span />", {
-                "class": "close",
-                "data-dismiss": "alert",
-                html: "<i class='fa fa-times-circle'></i>"
-            }).appendTo(msg);
+                var msgClose = $("<span />", {
+                    "class": "close",
+                    "data-dismiss": "alert",
+                    html: "<i class='fa fa-times-circle'></i>"
+                }).appendTo(msg);
             }
             $('#' + appendToId).prepend(msg);
             $(document).ready(function(){
@@ -201,7 +211,7 @@ $(document).ready(function(){
             updateCartIcon();
         }
         else{
-            createAlert('Opps!','Pick color','First you must pick color','danger',false,true,'pageMessages');       
+            createAlert('Pick color'," ",'First, you must click on a color','danger',false,true,'pageMessages');       
         }
     })
     /** handle quantity selection modal animation*/
@@ -265,7 +275,17 @@ $(document).ready(function(){
                        $('#cartButton').text('Checkout Now');
                         addBalls(); 
                         updateCartIcon();
-                        createAlert('','Added To Cart:',`${savedQuantity} ${selectedColorLabel}`,'success',false,false,'pageMessages');
+                        let total=0;
+                        for(let color of Colors){
+                            if(color.selectedquantity>0){
+                                let price=color.price;
+                                let discount=color.discount;
+                                let quantity=color.selectedquantity;
+                                let discountedPrice=(price-(price*discount/100)).toFixed(2);
+                                total+=discountedPrice*quantity;
+                            }
+                        }
+                        createAlert(`Cart: total=$${total}`," ",`${savedQuantity} ${selectedColorLabel}`,'success',false,false,'pageMessages');
                     }
                }
            }
