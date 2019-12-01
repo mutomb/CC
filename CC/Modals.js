@@ -282,7 +282,7 @@ $(document).ready(function(){
                                 let discount=color.discount;
                                 let quantity=color.selectedquantity;
                                 let discountedPrice=(price-(price*discount/100)).toFixed(2);
-                                total+=discountedPrice*quantity;
+                                total+=(discountedPrice*quantity).toFixed(2);
                             }
                         }
                         createAlert(`Cart: total=$${total}`," ",`${savedQuantity} ${selectedColorLabel}`,'success',false,false,'pageMessages');
