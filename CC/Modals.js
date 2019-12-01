@@ -282,10 +282,10 @@ $(document).ready(function(){
                                 let discount=color.discount;
                                 let quantity=color.selectedquantity;
                                 let discountedPrice=(price-(price*discount/100)).toFixed(2);
-                                total+=(discountedPrice*quantity).toFixed(2);
+                                total+=discountedPrice*quantity;
                             }
                         }
-                        createAlert(`Cart: total=$${total}`," ",`${savedQuantity} ${selectedColorLabel}`,'success',false,false,'pageMessages');
+                        createAlert(`Cart: total=$${total.toFixed(2)}`," ",`${savedQuantity} ${selectedColorLabel}`,'success',false,false,'pageMessages');
                     }
                }
            }
